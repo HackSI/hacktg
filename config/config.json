@@ -1,0 +1,21 @@
+{
+  "development": {
+    "username": "hacktg",
+    "password": null,
+    "database": "hacktg_development",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "hacktg",
+    "password": null,
+    "database": "hacktg_test",
+    "host": "127.0.0.1"
+  },
+  "production": {
+    "username": "hacktg",
+    "password": null,
+    "database": "hacktg_production",
+    "host": "127.0.0.1"
+  }
+}

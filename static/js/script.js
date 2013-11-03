@@ -1,15 +1,26 @@
 /* Author: YOUR NAME HERE
 */
 
+socket = null;
+
 $(document).ready(function() {   
 
-  var socket = io.connect();
+    socket = io.connect( null, { 'auto connect': false } );
 
-  $('#sender').bind('click', function() {
-   socket.emit('message', 'Message Sent on ' + new Date());     
-  });
+    socket.on( 'started', function( data ) {
 
-  socket.on('server_message', function(data){
-   $('#receiver').append('<li>' + data + '</li>');  
-  });
+        console.log( 'Started' );
+
+        socket.emit( 'join', 2, function( err, resp ) {
+            console.log( resp );
+        } )
+
+    } );
+
+    socket.on( 'relay', function( a ) {
+        console.log( 'Relayed data received: a' )
+    } );
+
+    socket.socket.connect();
+
 });
